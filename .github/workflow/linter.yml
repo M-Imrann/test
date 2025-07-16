@@ -1,0 +1,17 @@
+name: Linter
+
+on: push
+
+jobs:
+  Linter:
+    name: Linter codebase
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Linter
+        uses: github/linter@v3
+        env: 
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
